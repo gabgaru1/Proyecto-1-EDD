@@ -82,6 +82,7 @@ public class Interfaz extends javax.swing.JFrame {
         Texto_Cantidad_Islas1 = new javax.swing.JLabel();
         Texto_Cantidad_Islas2 = new javax.swing.JLabel();
         Salir = new javax.swing.JButton();
+        EsPuente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaPuentes = new javax.swing.JTextArea();
         Grafo_Fondo = new javax.swing.JLabel();
@@ -271,6 +272,15 @@ public class Interfaz extends javax.swing.JFrame {
         });
         getContentPane().add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 60, 60));
 
+        EsPuente.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        EsPuente.setText("Verificar si son puentes");
+        EsPuente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EsPuenteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EsPuente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 180, 30));
+
         ListaPuentes.setColumns(20);
         ListaPuentes.setRows(5);
         jScrollPane1.setViewportView(ListaPuentes);
@@ -450,6 +460,23 @@ public class Interfaz extends javax.swing.JFrame {
         Popup.setVisible(true);
     }//GEN-LAST:event_Button_Ver_GrafoActionPerformed
 
+    private void EsPuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EsPuenteActionPerformed
+        try{
+            if (Grafito.esPuente(Grafito.findVertice(TextField_Usuario1.getText()).getId(), Grafito.findVertice(TextField_Usuario2.getText()).getId())){
+                Log_1 PopUp = new Log_1();
+                PopUp.getTexto().setText("Es puente");
+                PopUp.setVisible(true);
+            }else{
+                Log_1 PopUp = new Log_1();
+                PopUp.getTexto().setText("No es puente");
+                PopUp.setVisible(true);
+            }
+            
+        }catch (Exception e){
+            System.out.println("Algo salio mal");
+        }
+    }//GEN-LAST:event_EsPuenteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -506,6 +533,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Contador_DFS;
     private javax.swing.JLabel Decor_Peso;
     private javax.swing.JLabel Decor_Usuarios;
+    private javax.swing.JButton EsPuente;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Grafo_Fondo;
     private javax.swing.JLabel IconIsla;
