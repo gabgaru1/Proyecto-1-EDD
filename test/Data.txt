@@ -1,0 +1,6 @@
+0,Gabriel
+1,Jose
+2,Luis
+3,Santiago
+Gabriel,Santiago,2
+Jose,Luis,2
